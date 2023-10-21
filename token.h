@@ -22,6 +22,7 @@ typedef enum tokenType
 	OP_COLON,
 	OP_SCOLON,
 	OP_DOT,
+
 	KW_IMPORT,
 	KW_FUNC,
 	KW_IF,
@@ -44,7 +45,7 @@ void init_token_array(void);
 
 token *get_token_array(void);
 
-void push_token_array(token *tk);
+void push_token_array(tokenType type, char *data);
 
 void delete_token_array(void);
 

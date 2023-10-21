@@ -46,23 +46,19 @@ endif()
 # Own files
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
-# Generated files
-file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/gen/include/kiraz/lexer)
-include_directories(${CMAKE_CURRENT_BINARY_DIR}/gen/include)
-
 #
 # Homework 1
 #
 
 FLEX_TARGET(HW1
     ${CMAKE_CURRENT_SOURCE_DIR}/lex.l
-    ${CMAKE_CURRENT_BINARY_DIR}/gen/hw1-lexer.cc
-    DEFINES_FILE ${CMAKE_CURRENT_BINARY_DIR}/gen/include/kiraz/lexer/hw1.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/hw1-lexer.c
+    DEFINES_FILE ${CMAKE_CURRENT_SOURCE_DIR}/hw1-lexer.h
     COMPILE_FLAGS ${ADDITIONAL_FLEX_FLAGS}
 )
 
 # no bison target
 #ADD_FLEX_BISON_DEPENDENCY(HW1_FLEX HW1_BISON)
 
-add_executable(kiraz-hw1 main.c token.c ${FLEX_HW1_OUTPUTS})
+add_executable(kiraz-hw1 main.c token.c dynamic.c ${FLEX_HW1_OUTPUTS})
 target_link_libraries(kiraz-hw1 ${FLEX_LIBRARIES})

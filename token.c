@@ -67,8 +67,23 @@ void push_token_array(tokenType type, char *data)
 		}
 		else if (type == L_INTEGER)
 		{
-			value = malloc(sizeof(char) * len + 12);
-			sprintf(value, "L_INTEGER(%s)", data);
+			value = malloc(sizeof(char) * len + 16);
+			if (len >= 2 && data[0] == '0' && data[1] == 'b')
+			{
+				sprintf(value, "L_INTEGER(%s, 2)", data);
+			}
+			else if (len >= 2 && data[0] == '0' && data[1] == 'x')
+			{
+				sprintf(value, "L_INTEGER(%s, 16)", data);
+			}
+			else if (len >= 2 && data[0] == '0')
+			{
+				sprintf(value, "L_INTEGER(%s, 8)", data);
+			}
+			else
+			{
+				sprintf(value, "L_INTEGER(%s, 10)", data);
+			}
 		}
 		else if (type == L_STRING)
 		{

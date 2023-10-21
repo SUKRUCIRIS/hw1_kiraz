@@ -29,7 +29,7 @@ KW_IF if
 KW_WHILE while
 KW_CLASS class
 
-L_INTEGER [0-9]+
+L_INTEGER (0(x|b)?)?[0-9]+
 L_STRING \"([^\\\"]|\\.)*\"
 IDENTIFIER [_a-zA-Z][_a-zA-Z0-9]*
 REJECTED [ /t]

@@ -20,10 +20,10 @@ int main(int argc, char **argv)
 	}
 
 	int ret = 0;
-
-	while (ret = yylex())
+	if ((ret = yylex()))
 	{
 		printf("%d\n", ret);
+		return 3;
 	}
 
 	print_token_array();

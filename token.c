@@ -54,7 +54,7 @@ void push_token_array(tokenType type, char *data)
 	tk.type = type;
 	if (type >= OP_RETURNS && type <= KW_CLASS)
 	{
-		tk.value = static_token_names[tk.type];
+		tk.value = (char *)static_token_names[tk.type];
 	}
 	else
 	{

@@ -29,10 +29,15 @@ KW_IF if
 KW_WHILE while
 KW_CLASS class
 
-L_INTEGER (0(x|b)?)?[0-9]+
+L_INTEGER_8 (-|\+)?0[0-7]+
+L_INTEGER_16 (-|\+)?0[xX][0-9a-fA-F]+
+L_INTEGER_2 (-|\+)?0[bB][01]+
+L_INTEGER_10 (-|\+)?[0-9]+
 L_STRING \"([^\\\"]|\\.)*\"
 IDENTIFIER [_a-zA-Z][_a-zA-Z0-9]*
-REJECTED [ /t]
+REJECTED [ \t]
+
+INVALID .
 
 %%
 
@@ -63,9 +68,14 @@ REJECTED [ /t]
 {KW_WHILE} {push_token_array(KW_WHILE, yytext);}
 {KW_CLASS} {push_token_array(KW_CLASS, yytext);}
 
-{L_INTEGER} {push_token_array(L_INTEGER, yytext);}
+{L_INTEGER_8} {push_token_array(L_INTEGER_8, yytext);}
+{L_INTEGER_16} {push_token_array(L_INTEGER_16, yytext);}
+{L_INTEGER_2} {push_token_array(L_INTEGER_2, yytext);}
+{L_INTEGER_10} {push_token_array(L_INTEGER_10, yytext);}
 {L_STRING} {push_token_array(L_STRING, yytext);}
 {IDENTIFIER} {push_token_array(IDENTIFIER, yytext);}
 {REJECTED} {push_token_array(REJECTED, yytext);}
+
+{INVALID} {push_token_array(INVALID, yytext); return 0;}
 
 %%

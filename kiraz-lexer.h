@@ -2,9 +2,9 @@
 #define yyHEADER_H 1
 #define yyIN_HEADER 1
 
-#line 6 "/home/sukru/lexer_kiraz/hw1-lexer.h"
+#line 6 "/home/sukru/lexer_kiraz/kiraz-lexer.h"
 
-#line 8 "/home/sukru/lexer_kiraz/hw1-lexer.h"
+#line 8 "/home/sukru/lexer_kiraz/kiraz-lexer.h"
 
 #define  YY_INT_ALIGNED short int
 
@@ -466,9 +466,9 @@ extern int yylex (void);
 #undef yyTABLES_NAME
 #endif
 
-#line 71 "/home/sukru/lexer_kiraz/lex.l"
+#line 81 "/home/sukru/lexer_kiraz/lex.l"
 
 
-#line 473 "/home/sukru/lexer_kiraz/hw1-lexer.h"
+#line 473 "/home/sukru/lexer_kiraz/kiraz-lexer.h"
 #undef yyIN_HEADER
 #endif /* yyHEADER_H */

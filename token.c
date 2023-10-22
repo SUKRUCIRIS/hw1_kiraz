@@ -59,38 +59,41 @@ void push_token_array(tokenType type, char *data)
 	else
 	{
 		int len = strlen(data);
-		char *value = 0;
 		if (type == IDENTIFIER)
 		{
-			value = malloc(sizeof(char) * len + 13);
-			sprintf(value, "IDENTIFIER(%s)", data);
+			tk.value = malloc(sizeof(char) * (len + 13));
+			sprintf(tk.value, "IDENTIFIER(%s)", data);
 		}
-		else if (type == L_INTEGER)
+		else if (type == L_INTEGER_8)
 		{
-			value = malloc(sizeof(char) * len + 16);
-			if (len >= 2 && data[0] == '0' && data[1] == 'b')
-			{
-				sprintf(value, "L_INTEGER(%s, 2)", data);
-			}
-			else if (len >= 2 && data[0] == '0' && data[1] == 'x')
-			{
-				sprintf(value, "L_INTEGER(%s, 16)", data);
-			}
-			else if (len >= 2 && data[0] == '0')
-			{
-				sprintf(value, "L_INTEGER(%s, 8)", data);
-			}
-			else
-			{
-				sprintf(value, "L_INTEGER(%s, 10)", data);
-			}
+			tk.value = malloc(sizeof(char) * (len + 15));
+			sprintf(tk.value, "L_INTEGER(%s, 8)", data);
+		}
+		else if (type == L_INTEGER_16)
+		{
+			tk.value = malloc(sizeof(char) * (len + 16));
+			sprintf(tk.value, "L_INTEGER(%s, 16)", data);
+		}
+		else if (type == L_INTEGER_2)
+		{
+			tk.value = malloc(sizeof(char) * (len + 15));
+			sprintf(tk.value, "L_INTEGER(%s, 2)", data);
+		}
+		else if (type == L_INTEGER_10)
+		{
+			tk.value = malloc(sizeof(char) * (len + 16));
+			sprintf(tk.value, "L_INTEGER(%s, 10)", data);
 		}
 		else if (type == L_STRING)
 		{
-			value = malloc(sizeof(char) * len + 11);
-			sprintf(value, "L_STRING(%s)", data);
+			tk.value = malloc(sizeof(char) * (len + 11));
+			sprintf(tk.value, "L_STRING(%s)", data);
 		}
-		tk.value = value;
+		else if (type == INVALID)
+		{
+			tk.value = malloc(sizeof(char) * (len + 1));
+			sprintf(tk.value, "%s", data);
+		}
 	}
 	pushback_DA(token_da, &tk);
 }
@@ -108,7 +111,7 @@ void delete_token_array(void)
 	delete_DA(token_da);
 }
 
-void print_token_array(void)
+char print_token_array(void)
 {
 	token *arr = get_data_DA(token_da);
 	for (unsigned int i = 0; i < get_size_DA(token_da); i++)
@@ -118,5 +121,11 @@ void print_token_array(void)
 		{
 			printf("\n");
 		}
+		else if (arr[i].type == INVALID)
+		{
+			printf("\n\"Invalid token encountered: %s\"\n", arr[i].value);
+			return 1;
+		}
 	}
+	return 0;
 }

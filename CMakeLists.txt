@@ -17,7 +17,7 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
-set(CMAKE_C_FLAGS "-Wall -Wextra")
+set(CMAKE_C_FLAGS "-Wall -Wextra -Wno-unused-variable -Wno-unused-function")
 set(CMAKE_C_FLAGS_DEBUG "-g")
 set(CMAKE_C_FLAGS_RELEASE "-O3")
 
@@ -52,13 +52,13 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 FLEX_TARGET(HW1
     ${CMAKE_CURRENT_SOURCE_DIR}/lex.l
-    ${CMAKE_CURRENT_SOURCE_DIR}/hw1-lexer.c
-    DEFINES_FILE ${CMAKE_CURRENT_SOURCE_DIR}/hw1-lexer.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/kiraz-lexer.c
+    DEFINES_FILE ${CMAKE_CURRENT_SOURCE_DIR}/kiraz-lexer.h
     COMPILE_FLAGS ${ADDITIONAL_FLEX_FLAGS}
 )
 
 # no bison target
 #ADD_FLEX_BISON_DEPENDENCY(HW1_FLEX HW1_BISON)
 
-add_executable(kiraz-hw1 main.c token.c dynamic.c ${FLEX_HW1_OUTPUTS})
-target_link_libraries(kiraz-hw1 ${FLEX_LIBRARIES})
+add_executable(kiraz-lexer-out main.c token.c dynamic.c ${FLEX_HW1_OUTPUTS})
+target_link_libraries(kiraz-lexer-out ${FLEX_LIBRARIES})

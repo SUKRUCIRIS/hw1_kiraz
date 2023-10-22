@@ -13,5 +13,7 @@ make -j`nproc`
 
 Then run following to run it:
 ```
-./kiraz-hw1 ../kiraz.ki
+./kiraz-lexer-out ../kiraz.ki
 ```
+
+ŞÜKRÜ ÇİRİŞ 18401785

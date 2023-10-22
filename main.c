@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "token.h"
-#include "hw1-lexer.h"
+#include "kiraz-lexer.h"
 
 int main(int argc, char **argv)
 {
@@ -19,16 +19,18 @@ int main(int argc, char **argv)
 		return 2;
 	}
 
-	int ret = 0;
-	if ((ret = yylex()))
+	int tok = 0;
+	while ((tok = yylex()))
 	{
-		printf("%d\n", ret);
-		return 3;
+		printf("%d\n", tok);
 	}
 
-	print_token_array();
+	if (print_token_array() != 0)
+	{
+		delete_token_array();
+		return 3; // there is invalid token
+	}
 
 	delete_token_array();
-
 	return 0;
 }

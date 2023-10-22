@@ -29,10 +29,15 @@ typedef enum tokenType
 	KW_WHILE,
 	KW_CLASS,
 
-	REJECTED,
-	IDENTIFIER,
-	L_INTEGER,
+	L_INTEGER_8,
+	L_INTEGER_16,
+	L_INTEGER_2,
+	L_INTEGER_10,
 	L_STRING,
+	IDENTIFIER,
+	REJECTED,
+
+	INVALID
 } tokenType;
 
 typedef struct token
@@ -49,4 +54,4 @@ void push_token_array(tokenType type, char *data);
 
 void delete_token_array(void);
 
-void print_token_array(void);
+char print_token_array(void);

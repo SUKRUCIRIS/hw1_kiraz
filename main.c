@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "token.h"
+#include "base_class_token.h"
 #include "kiraz-lexer.h"
 
 int main(int argc, char **argv)
@@ -9,8 +9,6 @@ int main(int argc, char **argv)
 		printf("Usage: %s <input_file>\n", argv[0]);
 		return 1;
 	}
-
-	init_token_array();
 
 	yyin = fopen(argv[1], "rb");
 	if (!yyin)
@@ -25,12 +23,16 @@ int main(int argc, char **argv)
 		printf("%d\n", tok);
 	}
 
-	if (print_token_array() != 0)
+	printf("\nToken enums:\n");
+	print_all_tokens_enum();
+
+	printf("\nToken strings:\n");
+	if (print_all_tokens_string() != 0)
 	{
-		delete_token_array();
+		delete_all_tokens();
 		return 3; // there is invalid token
 	}
 
-	delete_token_array();
+	delete_all_tokens();
 	return 0;
 }

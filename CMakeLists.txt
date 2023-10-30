@@ -23,7 +23,6 @@ set(CMAKE_C_FLAGS_RELEASE "-O3")
 
 add_compile_options(
     -Werror=return-type
-    -Werror=dangling-else
 )
 
 #
@@ -60,5 +59,5 @@ FLEX_TARGET(HW1
 # no bison target
 #ADD_FLEX_BISON_DEPENDENCY(HW1_FLEX HW1_BISON)
 
-add_executable(kiraz-lexer-out main.c token.c dynamic.c ${FLEX_HW1_OUTPUTS})
+add_executable(kiraz-lexer-out main.c base_class_token.c dynamic.c all_class_tokens.c ${FLEX_HW1_OUTPUTS})
 target_link_libraries(kiraz-lexer-out ${FLEX_LIBRARIES})

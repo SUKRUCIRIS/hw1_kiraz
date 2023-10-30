@@ -493,7 +493,7 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "/home/sukru/lexer_kiraz/lex.l"
 #line 2 "/home/sukru/lexer_kiraz/lex.l"
-#include "token.h"
+#include "all_class_tokens.h"
 #line 498 "/home/sukru/lexer_kiraz/kiraz-lexer.c"
 #line 499 "/home/sukru/lexer_kiraz/kiraz-lexer.c"
 
@@ -775,169 +775,169 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 44 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_RETURNS, yytext);}
+{constructor_OP_RETURNS();}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
 #line 45 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_EQUALS, yytext);}
+{constructor_OP_EQUALS();}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
 #line 46 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_ASSIGN, yytext);}
+{constructor_OP_ASSIGN();}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
 #line 47 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_GT, yytext);}
+{constructor_OP_GT();}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 48 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_LT, yytext);}
+{constructor_OP_LT();}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
 #line 49 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_GE, yytext);}
+{constructor_OP_GE();}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
 #line 50 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_LE, yytext);}
+{constructor_OP_LE();}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
 #line 51 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_LPAREN, yytext);}
+{constructor_OP_LPAREN();}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
 #line 52 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_RPAREN, yytext);}
+{constructor_OP_RPAREN();}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
 #line 53 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_LBRACE, yytext);}
+{constructor_OP_LBRACE();}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
 #line 54 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_RBRACE, yytext);}
+{constructor_OP_RBRACE();}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
 #line 55 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_PLUS, yytext);}
+{constructor_OP_PLUS();}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
 #line 56 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_MINUS, yytext);}
+{constructor_OP_MINUS();}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
 #line 57 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_MULT, yytext);}
+{constructor_OP_MULT();}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
 #line 58 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_DIVF, yytext);}
+{constructor_OP_DIVF();}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
 #line 59 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_COMMA, yytext);}
+{constructor_OP_COMMA();}
 	YY_BREAK
 case 17:
 /* rule 17 can match eol */
 YY_RULE_SETUP
 #line 60 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_NEWLINE, yytext);}
+{constructor_OP_NEWLINE();}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
 #line 61 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_COLON, yytext);}
+{constructor_OP_COLON();}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
 #line 62 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_SCOLON, yytext);}
+{constructor_OP_SCOLON();}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
 #line 63 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(OP_DOT, yytext);}
+{constructor_OP_DOT();}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
 #line 65 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(KW_IMPORT, yytext);}
+{constructor_KW_IMPORT();}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
 #line 66 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(KW_FUNC, yytext);}
+{constructor_KW_FUNC();}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
 #line 67 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(KW_IF, yytext);}
+{constructor_KW_IF();}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
 #line 68 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(KW_WHILE, yytext);}
+{constructor_KW_WHILE();}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
 #line 69 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(KW_CLASS, yytext);}
+{constructor_KW_CLASS();}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
 #line 71 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(L_INTEGER_8, yytext);}
+{constructor_L_INTEGER_8(yytext);}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
 #line 72 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(L_INTEGER_16, yytext);}
+{constructor_L_INTEGER_16(yytext);}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
 #line 73 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(L_INTEGER_2, yytext);}
+{constructor_L_INTEGER_2(yytext);}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
 #line 74 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(L_INTEGER_10, yytext);}
+{constructor_L_INTEGER_10(yytext);}
 	YY_BREAK
 case 30:
 /* rule 30 can match eol */
 YY_RULE_SETUP
 #line 75 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(L_STRING, yytext);}
+{constructor_L_STRING(yytext);}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
 #line 76 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(IDENTIFIER, yytext);}
+{constructor_IDENTIFIER(yytext);}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
 #line 77 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(REJECTED, yytext);}
+{}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
 #line 79 "/home/sukru/lexer_kiraz/lex.l"
-{push_token_array(INVALID, yytext); return 0;}
+{constructor_INVALID(yytext); return 0;}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
